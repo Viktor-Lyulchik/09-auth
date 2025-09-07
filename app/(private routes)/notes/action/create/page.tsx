@@ -8,6 +8,7 @@ import {
 
 import { Metadata } from 'next';
 import CreateNoteClient from './CreateNote.client';
+import { API_URL } from '@/lib/helpers';
 
 export const metadata: Metadata = {
   title: 'Create new note',
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Create new note',
     description: 'Page for creating a new note',
-    url: `${process.env.NEXT_PUBLIC_API_URL}/notes/action/create`,
+    url: `${API_URL}/notes/action/create`,
     images: [
       {
         url: 'https://ac.goit.global/fullstack/react/notehub-og-meta.jpg',

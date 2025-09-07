@@ -6,6 +6,7 @@ import {
 import type { Metadata } from 'next';
 import { fetchNoteById } from '@/lib/api/serverApi';
 import NoteDetailsClient from './NoteDetails.client';
+import { API_URL } from '@/lib/helpers';
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -22,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `Note ${note.title}`,
       description: note.content.slice(0, 30),
-      url: `${process.env.NEXT_PUBLIC_API_URL}/notes/${id}`,
+      url: `${API_URL}/notes/${id}`,
       siteName: 'Note HUB app',
       images: [
         {
