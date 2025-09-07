@@ -1,5 +1,5 @@
 import css from './CreateNote.module.css';
-import { getTags } from '@/lib/api';
+import { getTags } from '@/lib/api/serverApi';
 import {
   dehydrate,
   HydrationBoundary,
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Create new note',
     description: 'Page for creating a new note',
-    url: 'https://08-zustand-amber-two.vercel.app/notes/action/create',
+    url: `${process.env.NEXT_PUBLIC_API_URL}/notes/action/create`,
     images: [
       {
         url: 'https://ac.goit.global/fullstack/react/notehub-og-meta.jpg',

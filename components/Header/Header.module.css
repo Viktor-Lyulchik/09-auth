@@ -26,12 +26,19 @@
   gap: 1rem;
 }
 
-.navigation li a {
+.navigation li a,
+.navigationLink {
   text-decoration: none;
   color: white;
   font-size: 1rem;
 }
 
-.navigation li a:hover {
+.navigation li a:hover,
+.navigationLink:hover {
   color: #ddd;
+}
+
+.navigationItem {
+  display: flex;
+  align-items: center;
 }

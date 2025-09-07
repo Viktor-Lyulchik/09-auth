@@ -3,7 +3,7 @@ import { useRouter } from 'next/navigation';
 
 import css from './NoteForm.module.css';
 import type { NotePost } from '../../types/note';
-import { createNote } from '@/lib/api';
+import { createNote } from '@/lib/api/clientApi';
 import toast from 'react-hot-toast';
 
 import { useNoteDraftStore } from '@/lib/store/noteStore';

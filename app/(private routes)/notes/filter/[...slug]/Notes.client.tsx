@@ -5,7 +5,7 @@ import { useQuery, keepPreviousData } from '@tanstack/react-query';
 import { useDebouncedCallback } from 'use-debounce';
 import toast, { Toaster } from 'react-hot-toast';
 import Link from 'next/link';
-import { fetchNotes, NotesHttpResponse } from '@/lib/api';
+import { fetchNotes, NotesHttpResponse } from '@/lib/api/clientApi';
 
 import css from './NotesPage.module.css';
 

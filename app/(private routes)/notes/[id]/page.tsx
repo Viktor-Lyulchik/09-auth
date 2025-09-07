@@ -4,7 +4,7 @@ import {
   dehydrate,
 } from '@tanstack/react-query';
 import type { Metadata } from 'next';
-import { fetchNoteById } from '@/lib/api';
+import { fetchNoteById } from '@/lib/api/serverApi';
 import NoteDetailsClient from './NoteDetails.client';
 
 type Props = {
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `Note ${note.title}`,
       description: note.content.slice(0, 30),
-      url: `https://08-zustand-amber-two.vercel.app/notes/${id}`,
+      url: `${process.env.NEXT_PUBLIC_API_URL}/notes/${id}`,
       siteName: 'Note HUB app',
       images: [
         {

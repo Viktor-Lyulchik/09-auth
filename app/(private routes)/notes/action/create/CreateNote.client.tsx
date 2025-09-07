@@ -1,7 +1,7 @@
 'use client';
 
 import { useQuery } from '@tanstack/react-query';
-import { getTags } from '@/lib/api';
+import { getTags } from '@/lib/api/clientApi';
 import NoteForm from '@/components/NoteForm/NoteForm';
 
 export default function CreateNoteClient() {

@@ -6,7 +6,7 @@ import {
 import type { Metadata } from 'next';
 import css from './NotesPage.module.css';
 import AppClient from './Notes.client';
-import { fetchNotes } from '@/lib/api';
+import { fetchNotes } from '@/lib/api/serverApi';
 
 type AppProps = {
   params: Promise<{ slug: string[] }>;
@@ -25,7 +25,7 @@ export async function generateMetadata({
     openGraph: {
       title: `Notes - ${tag}`,
       description: `Notes - ${tag}`,
-      url: 'https://08-zustand-amber-two.vercel.app/',
+      url: process.env.NEXT_PUBLIC_API_URL,
       siteName: 'Note HUB app',
       images: [
         {

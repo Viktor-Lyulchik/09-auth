@@ -1,16 +1,19 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { getTags } from '@/lib/api/clientApi';
 
 import css from './TagsMenu.module.css';
 
-type TagsMenuProps = {
-  tags: string[];
-};
-
-const TagsMenu = ({ tags }: TagsMenuProps) => {
+const TagsMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
+
+  const [tags, setTags] = useState<string[]>([]);
+
+  useEffect(() => {
+    getTags().then(data => setTags(data));
+  }, []);
 
   return (
     <div className={css.menuContainer}>
