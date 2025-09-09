@@ -20,6 +20,7 @@ const SignIn = () => {
       const res = await login(formValues);
       if (res) {
         setUser(res);
+        router.refresh();
         router.push('/profile');
       } else {
         setError('Invalid email or password');

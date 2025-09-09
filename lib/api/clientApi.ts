@@ -96,8 +96,14 @@ export type CheckSessionRequest = {
   refreshToken?: string;
 };
 
-export const checkSession = async (): Promise<void> => {
-  await nextServer.get<CheckSessionRequest>('/auth/session');
+export type CheckSessionRequestClient = {
+  success: boolean;
+};
+
+export const checkSession = async (): Promise<boolean> => {
+  const { data } =
+    await nextServer.get<CheckSessionRequestClient>('/auth/session');
+  return data.success;
 };
 
 export const getMe = async (): Promise<User> => {
