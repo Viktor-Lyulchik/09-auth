@@ -92,12 +92,12 @@ export const login = async (data: LoginRequest): Promise<User> => {
 };
 
 export type CheckSessionRequest = {
-  success: boolean;
+  accessToken: string;
+  refreshToken?: string;
 };
 
-export const checkSession = async (): Promise<boolean> => {
-  const res = await nextServer.get<CheckSessionRequest>('/auth/session');
-  return res.data.success;
+export const checkSession = async (): Promise<void> => {
+  await nextServer.get<CheckSessionRequest>('/auth/session');
 };
 
 export const getMe = async (): Promise<User> => {

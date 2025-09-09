@@ -6,7 +6,6 @@ import Header from '@/components/Header/Header';
 import TanStackProvider from '@/components/TanStackProvider/TanStackProvider';
 import Footer from '@/components/Footer/Footer';
 import AuthProvider from '@/components/AuthProvider/AuthProvider';
-import { API_URL } from '@/lib/helpers';
 
 const roboto = Roboto({
   variable: '--font-roboto',
@@ -22,7 +21,7 @@ export const metadata: Metadata = {
     title: 'Note HUB',
     description:
       'Application for creating, viewing and editing notes. Created in GoIT',
-    url: API_URL,
+    url: process.env.NEXT_PUBLIC_API_URL,
     siteName: 'Note HUB app',
     images: [
       {

@@ -21,42 +21,32 @@ const AuthNavigation = () => {
     router.push('/sign-in');
   };
 
-  return (
+  return isAuthenticated ? (
     <>
       <li className={css.navigationItem}>
         <Link href="/profile" prefetch={false} className={css.navigationLink}>
           Profile
         </Link>
       </li>
-      {isAuthenticated ? (
-        <li className={css.navigationItem}>
-          <p className={css.userEmail}>{user?.email}</p>
-          <button onClick={handleLogout} className={css.logoutButton}>
-            Logout
-          </button>
-        </li>
-      ) : (
-        <>
-          <li className={css.navigationItem}>
-            <Link
-              href="/sign-in"
-              prefetch={false}
-              className={css.navigationLink}
-            >
-              Login
-            </Link>
-          </li>
-          <li className={css.navigationItem}>
-            <Link
-              href="/sign-up"
-              prefetch={false}
-              className={css.navigationLink}
-            >
-              Sign up
-            </Link>
-          </li>
-        </>
-      )}
+      <li className={css.navigationItem}>
+        <p className={css.userEmail}>{user?.email}</p>
+        <button onClick={handleLogout} className={css.logoutButton}>
+          Logout
+        </button>
+      </li>
+    </>
+  ) : (
+    <>
+      <li className={css.navigationItem}>
+        <Link href="/sign-in" prefetch={false} className={css.navigationLink}>
+          Login
+        </Link>
+      </li>
+      <li className={css.navigationItem}>
+        <Link href="/sign-up" prefetch={false} className={css.navigationLink}>
+          Sign up
+        </Link>
+      </li>
     </>
   );
 };

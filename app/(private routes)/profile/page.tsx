@@ -3,7 +3,6 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import { getMe } from '@/lib/api/serverApi';
 import css from './ProfilePage.module.css';
-import { API_URL } from '@/lib/helpers';
 
 export const metadata: Metadata = {
   title: 'Note HUB',
@@ -13,7 +12,7 @@ export const metadata: Metadata = {
     title: 'Note HUB',
     description:
       'Application for creating, viewing and editing notes. Created in GoIT',
-    url: API_URL,
+    url: process.env.NEXT_PUBLIC_API_URL,
     siteName: 'Note HUB app',
     images: [
       {
